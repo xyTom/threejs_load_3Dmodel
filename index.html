@@ -33,6 +33,17 @@
 			};
 
 			animate();
+			var loader = new THREE.GLTFLoader();
+
+loader.load( 'model.gltf', function ( gltf ) {
+
+	scene.add( gltf.scene );
+
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
 		</script>
 	</body>
 </html>
