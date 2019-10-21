@@ -1,53 +1,34 @@
-
-<html lang="en">
-	<head>
-		<title>3D模型实时观看</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				font-family: Monospace;
-				background-color: #fff;
-				color: black;
-				margin: 0px;
-				overflow: hidden;
-			}
- 
-			#modelBorderContainer{
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				position: absolute;
-				width: 100%;
-				height: 100%;              
-			}
-			#modelBorder {
-				max-width: 512px;
-				width: 100%;
-				height: 50%;
-			}
-            canvas{
-                position: absolute;
-                top: 0%;
-                left: 0%;
-            }
-		</style>
-	</head>
- 
-	
- 
-	<body>
-		<div id="modelBorderContainer">
-			<div id="modelBorder"></div>
-		</div>
-		<script type="application/javascript">
-			var modelUrl = 'model.gltf'     //定义所使用模型路径
-		</script>
-		<script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
-		<script src="js/OrbitControls.js?v=2.0.3"></script>
-		<script src="js/GLTFLoader.js?v=2.0.3"></script>
-		<script src="js/WebGL.js?v=2.0.3"></script>
-		<script src="js/stats.min.js?v=2.0.3"></script>
-		<script src="js/3dmodel.js?v=2.0.3"></script>
-	</body>
-</html>
+<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+<style>
+body{
+margin:0px;
+}
+</style>
+<div class="sketchfab-embed-wrapper">
+    <iframe title="Jame Watt Project" width="100%" height="100%" src="https://sketchfab.com/models/b0b4641d2a9447ec862275e1c6087c18/embed?autospin=0.2&amp;autostart=1&amp;preload=1&amp;ui_infos=0&amp;ui_controls=0&amp;watermark=0&amp;ui_watermark_link=0" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<div class="animated slideInLeft" style="
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    background-color: black;
+    opacity: 0.9;
+    left: 0px;
+    padding-left: 10px;
+    overflow: hidden;
+    padding-right: 20px;
+    margin-bottom: 8px;
+        margin-left: 8px;
+">
+    <p class="animated bounceInDown" style="
+    font-size: 2rem;
+">Steam Engine | James Watt Project</p>
+    <p style="
+    font-size: 1rem;
+">BY:Tom&amp;Jacky&amp;Jerry <a style="
+    color: aqua;
+" href="explainationg.html" target="_blank">Know more about the principle of steam engine></a></p>  
+<p>Other awesome Project:<a style="
+    color: aqua;
+" href="https://book.200091.xyz" target="_blank">Book Search Engine</a></p>
+</div>
+</div>
