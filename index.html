@@ -1,50 +1,134 @@
-<html>
-	<head>
-		<title>My first three.js app</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
-		</style>
-	</head>
-	<body>
-		<script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
-		<script src="gltfloader.js"></script>
-		<script>
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>James Watt Project</title>
+<link href="https://cdn.bootcss.com/fullPage.js/3.0.7/fullpage.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+<style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
 
-			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+body{
+	overflow:hidden !important;
+    margin: 0px;
+   }
+</style>
+<script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fullPage.js/3.0.7/fullpage.min.js"></script>
+<script src="https://cdn.bootcss.com/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script>
+    var wow = new WOW({ 
+　　　　boxClass: 'wow', 
+　　　　animateClass: 'animated', 
+　　　　offset: 0, 
+　　　　mobile: true, 
+　　　　live: true 
+　　}); 
+$(function(){
+    $('#steamengine').fullpage({
+    sectionsColor: ['#000','#000','#000','#fff','#000'],
+    //设置颜色参数
+    //anchors: ['page1', 'page2', 'page3', 'page4'],
+    //定义锚链接
+    //menu: '#menu'
+    //绑定菜单，设定的相关属性与 anchors 的值对应后，菜单可以控制滚动
+    scrollBar: true,
+    afterRender: function(){
+　　wow.init();
 
-			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			var cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+    }
+    });
+});
+$(document).ready(function(){
+$("#firstimage").click(function(){
+    $("#secondimage").css("display","unset");
+  });
+$("#replay").click(function(){
+    window.location.replace("https://cocg.azurewebsites.net/steamengine/explainationa.html")
+  });
+    
+});
+</script>
+</head>
 
-			camera.position.z = 5;
+<body>
 
-			var animate = function () {
-				requestAnimationFrame( animate );
+<div id="steamengine">
 
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
+	<div class="section section1">
+        <h3 class="wow slideInDown">Steam Engine Interactive 3D Model</h3>
+        <p class="wow flipInX"  data-wow-delay="1s" style="font-size: 30px;">Scan the QR code below to view the 3D model by your phone!</p>
+        <img class="wow bounceInUp" data-wow-delay="2s" src="qrcode.png">
+	<p class="wow flipInX"  data-wow-delay="1s" style="font-size: 20px;">Notice:The size of the 3D model is very large. It needs some time to load. Please wait patiently.</p>
+	<p class="wow flipInX"  data-wow-delay="1s" style="font-size: 20px;">Using Wechat to view the 3D model is not recommended. Please try to open it with browser.</p>
+	</div>
+	<div class="section section2">
+	<iframe title="Jame Watt Project" width="100%" height="100%" src="https://cocg.azurewebsites.net/steamengine/3d.html" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+	</div>
+	<div class="section section3">
+        <h3 class="wow slideInDown">Inside the Steam Engine</h3>
+        <p class="wow flipInX"  data-wow-delay="1s" style="font-size: 30px;">How does the Steam Engine work?</p>
+        <img class="wow bounceInUp" data-wow-delay="2s" src="cylinder.gif" id="firstimage">
+	<img class="wow bounceInRight" src="steamengine.gif" id="secondimage">
+	</div>
+	<div class="section section4">
+		<h3 class="wow slideInDown" style="color: #000;">Governor</h3>
+        <p class="wow bounceInLeft" data-wow-delay="1s" style="font-size: 30px;color: #000;">A usefull component to control the speed</p>
+        <img class="wow bounceInUp" data-wow-delay="2s" src="governor.gif">
+	</div>
+	<div class="section section5">
+		<h3 class="wow slideInDown" style="color: #fff;">Thank you!</h3>
+        <p class="wow bounceInLeft" data-wow-delay="1s" style="font-size: 30px;color: #fff;cursor:pointer;" id="replay">Replay</p>
+	</div>
 
-				renderer.render( scene, camera );
-			};
+</div>
+<audio  autoplay="autoplay" id="Audio1">
+  <source src="transcript (1).mp3" type="audio/mpeg" />
+</audio>
+<audio id="Audio2">
+  <source src="transcript (2).mp3" type="audio/mpeg" />
+</audio>
+<audio id="Audio3">
+  <source src="transcript (3).mp3" type="audio/mpeg" />
+</audio>
+<audio id="Audio4">
+  <source src="transcript (4).mp3" type="audio/mpeg" />
+</audio>
+<audio id="Audio5">
+  <source src="transcript (5).mp3" type="audio/mpeg" />
+</audio>
 
-			animate();
-			var loader = new THREE.GLTFLoader();
+<script>
+var aud1 = document.getElementById("Audio1");
+aud1.onended = function() 
+{
+    setTimeout("$.fn.fullpage.moveSectionDown()", 5000 );
+setTimeout("aud2.play();", 6000 );
+};
+aud1.play();
+var aud2 = document.getElementById("Audio2");
+aud2.onended = function() 
+{
+setTimeout("$.fn.fullpage.moveSectionDown();", 6000);
+setTimeout("aud3.play();", 7000 );
 
-loader.load( 'model.gltf', function ( gltf ) {
+};
+var aud3 = document.getElementById("Audio3");
+aud3.onended = function() 
+{
+    $.fn.fullpage.moveSectionDown();
+setTimeout("aud4.play();", 1000 );
+};
+var aud4 = document.getElementById("Audio4");
+var aud5 = document.getElementById("Audio5");
+aud4.onended = function() 
+{
+    $.fn.fullpage.moveSectionDown();
+aud5.play();
+};
 
-	scene.add( gltf.scene );
 
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-		</script>
-	</body>
+</script>
+</body>
 </html>
