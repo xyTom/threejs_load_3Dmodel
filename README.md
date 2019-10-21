@@ -7,3 +7,11 @@ Technology stack：
 3、fullpage.js
 4、Jquery
 5、IBM Watson Text to Speech
+
+Usage:
+You can download all the files in archives branch and upload to your own sever to deploy.
+
+Or you can visit https://cloudtom.github.io/threejs_load_3Dmodel/
+
+If you want IBM Watson's introduction, you need to open the console(press F12) when you open the website above and type the command "aud1.play()".
+Notice: This extra command only be needed for some special type of bowser like Google Chrome but not needed by Microsoft Edge. It depends on the situation!
